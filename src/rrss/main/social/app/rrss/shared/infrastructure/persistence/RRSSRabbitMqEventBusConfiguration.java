@@ -8,20 +8,20 @@ import social.app.shared.infrastructure.bus.event.rabbitmq.RabbitMqEventBus;
 import social.app.shared.infrastructure.bus.event.rabbitmq.RabbitMqPublisher;
 
 @Configuration
-public class MoocRabbitMqEventBusConfiguration {
+public class RRSSRabbitMqEventBusConfiguration {
     private final RabbitMqPublisher publisher;
     private final MySqlEventBus     failoverPublisher;
 
-    public MoocRabbitMqEventBusConfiguration(
+    public RRSSRabbitMqEventBusConfiguration(
         RabbitMqPublisher publisher,
-        @Qualifier("moocMysqlEventBus") MySqlEventBus failoverPublisher
+        @Qualifier("rrssMysqlEventBus") MySqlEventBus failoverPublisher
     ) {
         this.publisher         = publisher;
         this.failoverPublisher = failoverPublisher;
     }
 
     @Bean
-    public RabbitMqEventBus moocRabbitMqEventBus() {
+    public RabbitMqEventBus rrssRabbitMqEventBus() {
         return new RabbitMqEventBus(publisher, failoverPublisher);
     }
 }

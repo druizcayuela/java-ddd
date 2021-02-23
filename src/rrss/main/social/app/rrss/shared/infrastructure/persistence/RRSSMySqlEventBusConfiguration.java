@@ -10,13 +10,13 @@ import social.app.shared.infrastructure.bus.event.mysql.MySqlEventBus;
 import social.app.shared.infrastructure.bus.event.spring.SpringApplicationEventBus;
 
 @Configuration
-public class MoocMySqlEventBusConfiguration {
+public class RRSSMySqlEventBusConfiguration {
     private final SessionFactory            sessionFactory;
     private final DomainEventsInformation   domainEventsInformation;
     private final SpringApplicationEventBus bus;
 
-    public MoocMySqlEventBusConfiguration(
-        @Qualifier("mooc-session_factory") SessionFactory sessionFactory,
+    public RRSSMySqlEventBusConfiguration(
+        @Qualifier("rrss-session_factory") SessionFactory sessionFactory,
         DomainEventsInformation domainEventsInformation,
         SpringApplicationEventBus bus
     ) {
@@ -26,12 +26,12 @@ public class MoocMySqlEventBusConfiguration {
     }
 
     @Bean
-    public MySqlEventBus moocMysqlEventBus() {
+    public MySqlEventBus rrssMysqlEventBus() {
         return new MySqlEventBus(sessionFactory);
     }
 
     @Bean
-    public MySqlDomainEventsConsumer moocMySqlDomainEventsConsumer() {
+    public MySqlDomainEventsConsumer rrssMySqlDomainEventsConsumer() {
         return new MySqlDomainEventsConsumer(sessionFactory, domainEventsInformation, bus);
     }
 }

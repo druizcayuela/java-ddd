@@ -22,7 +22,7 @@ public final class HealthCheckGetController extends ApiController {
     @GetMapping("/health-check")
     public HashMap<String, String> index() {
         HashMap<String, String> status = new HashMap<>();
-        status.put("application", "mooc_backend");
+        status.put("application", "rrss_backend");
         status.put("status", "ok");
 
         return status;

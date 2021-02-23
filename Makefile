@@ -21,8 +21,6 @@ ping-mysql:
 	@docker exec socialapp-java_ddd_skeleton-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
 
 # Start the app
-start-mooc_backend:
-	@./gradlew :run --args='mooc_backend server'
+start-rrss_backend:
+	@./gradlew :run --args='rrss_backend server'
 
-start-backoffice_frontend:
-	@./gradlew :run --args='backoffice_frontend server'

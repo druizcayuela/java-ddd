@@ -14,9 +14,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional("mooc-transaction_manager")
+@Transactional("rrss-transaction_manager")
 public class MySqlCourseRepository extends HibernateRepository<Course> implements CourseRepository {
-    public MySqlCourseRepository(@Qualifier("mooc-session_factory") SessionFactory sessionFactory) {
+    public MySqlCourseRepository(@Qualifier("rrss-session_factory") SessionFactory sessionFactory) {
         super(sessionFactory, Course.class);
     }
 

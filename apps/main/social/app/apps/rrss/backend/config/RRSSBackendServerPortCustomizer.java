@@ -17,7 +17,7 @@ public final class RRSSBackendServerPortCustomizer implements WebServerFactoryCu
     @Override
     public void customize(ConfigurableWebServerFactory factory) {
         try {
-            factory.setPort(param.getInt("MOOC_BACKEND_SERVER_PORT"));
+            factory.setPort(param.getInt("RRSS_BACKEND_SERVER_PORT"));
         } catch (ParameterNotExist parameterNotExist) {
             parameterNotExist.printStackTrace();
         }

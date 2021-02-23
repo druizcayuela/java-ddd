@@ -14,34 +14,34 @@ import java.io.IOException;
 
 @Configuration
 @EnableTransactionManagement
-public class MoocHibernateConfiguration {
+public class RRSSHibernateConfiguration {
     private final HibernateConfigurationFactory factory;
     private final Parameter                     config;
-    private final String                        CONTEXT_NAME = "mooc";
+    private final String                        CONTEXT_NAME = "rrss";
 
-    public MoocHibernateConfiguration(HibernateConfigurationFactory factory, Parameter config) {
+    public RRSSHibernateConfiguration(HibernateConfigurationFactory factory, Parameter config) {
         this.factory = factory;
         this.config  = config;
     }
 
-    @Bean("mooc-transaction_manager")
+    @Bean("rrss-transaction_manager")
     public PlatformTransactionManager hibernateTransactionManager() throws IOException, ParameterNotExist {
         return factory.hibernateTransactionManager(sessionFactory());
     }
 
-    @Bean("mooc-session_factory")
+    @Bean("rrss-session_factory")
     public LocalSessionFactoryBean sessionFactory() throws IOException, ParameterNotExist {
         return factory.sessionFactory(CONTEXT_NAME, dataSource());
     }
 
-    @Bean("mooc-data_source")
+    @Bean("rrss-data_source")
     public DataSource dataSource() throws IOException, ParameterNotExist {
         return factory.dataSource(
-            config.get("MOOC_DATABASE_HOST"),
-            config.getInt("MOOC_DATABASE_PORT"),
-            config.get("MOOC_DATABASE_NAME"),
-            config.get("MOOC_DATABASE_USER"),
-            config.get("MOOC_DATABASE_PASSWORD")
+            config.get("RRSS_DATABASE_HOST"),
+            config.getInt("RRSS_DATABASE_PORT"),
+            config.get("RRSS_DATABASE_NAME"),
+            config.get("RRSS_DATABASE_USER"),
+            config.get("RRSS_DATABASE_PASSWORD")
         );
     }
 }

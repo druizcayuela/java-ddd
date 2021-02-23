@@ -4,7 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.context.ConfigurableApplicationContext;
 import social.app.apps.backoffice.backend.BackofficeBackendApplication;
-import social.app.apps.backoffice.frontend.BackofficeFrontendApplication;
 import social.app.apps.rrss.backend.RRSSBackendApplication;
 import social.app.shared.infrastructure.cli.ConsoleCommand;
 
@@ -67,9 +66,8 @@ public class Starter {
     private static HashMap<String, Class<?>> applications() {
         HashMap<String, Class<?>> applications = new HashMap<>();
 
-        applications.put("mooc_backend", RRSSBackendApplication.class);
+        applications.put("rrss_backend", RRSSBackendApplication.class);
         applications.put("backoffice_backend", BackofficeBackendApplication.class);
-        applications.put("backoffice_frontend", BackofficeFrontendApplication.class);
 
         return applications;
     }
@@ -77,9 +75,8 @@ public class Starter {
     private static HashMap<String, HashMap<String, Class<?>>> commands() {
         HashMap<String, HashMap<String, Class<?>>> commands = new HashMap<>();
 
-        commands.put("mooc_backend", RRSSBackendApplication.commands());
+        commands.put("rrss_backend", RRSSBackendApplication.commands());
         commands.put("backoffice_backend", BackofficeBackendApplication.commands());
-        commands.put("backoffice_frontend", BackofficeFrontendApplication.commands());
 
         return commands;
     }
