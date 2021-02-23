@@ -24,3 +24,6 @@ ping-mysql:
 start-rrss_backend:
 	@./gradlew :run --args='rrss_backend server'
 
+start-backoffice_backend:
+	@./gradlew :run --args='backoffice_backend server'
+
