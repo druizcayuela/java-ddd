@@ -8,7 +8,6 @@ import social.app.shared.domain.bus.event.EventBus;
 
 import java.util.List;
 
-@Primary
 @Service
 public class SpringApplicationEventBus implements EventBus {
     private final ApplicationEventPublisher publisher;
