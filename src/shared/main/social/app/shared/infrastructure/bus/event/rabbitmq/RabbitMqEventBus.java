@@ -32,6 +32,7 @@ public class RabbitMqEventBus implements EventBus {
         try {
             this.publisher.publish(domainEvent, exchangeName);
         } catch (AmqpException error) {
+            error.printStackTrace();
             failoverPublisher.publish(Collections.singletonList(domainEvent));
         }
     }

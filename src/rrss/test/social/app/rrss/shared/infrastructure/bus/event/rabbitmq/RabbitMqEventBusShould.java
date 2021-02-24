@@ -3,9 +3,9 @@ package social.app.rrss.shared.infrastructure.bus.event.rabbitmq;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import social.app.rrss.courses.domain.CourseCreatedDomainEventMother;
 import social.app.rrss.RRSSContextInfrastructureTestCase;
-import social.app.shared.domain.course.CourseCreatedDomainEvent;
+import social.app.rrss.users.domain.UserCreatedDomainEventMother;
+import social.app.shared.domain.user.UserCreatedDomainEvent;
 import social.app.shared.infrastructure.bus.event.DomainEventSubscriberInformation;
 import social.app.shared.infrastructure.bus.event.DomainEventSubscribersInformation;
 import social.app.shared.infrastructure.bus.event.rabbitmq.RabbitMqDomainEventsConsumer;
@@ -33,7 +33,7 @@ public final class RabbitMqEventBusShould extends RRSSContextInfrastructureTestC
                 new HashMap<Class<?>, DomainEventSubscriberInformation>() {{
                     put(TestAllWorksOnRabbitMqEventsPublished.class, new DomainEventSubscriberInformation(
                         TestAllWorksOnRabbitMqEventsPublished.class,
-                        Collections.singletonList(CourseCreatedDomainEvent.class)
+                        Collections.singletonList(UserCreatedDomainEvent.class)
                     ));
                 }}
             )
@@ -42,7 +42,7 @@ public final class RabbitMqEventBusShould extends RRSSContextInfrastructureTestC
 
     @Test
     void publish_and_consume_domain_events_from_rabbitmq() throws Exception {
-        CourseCreatedDomainEvent domainEvent = CourseCreatedDomainEventMother.random();
+        UserCreatedDomainEvent domainEvent = UserCreatedDomainEventMother.random();
 
         eventBus.publish(Collections.singletonList(domainEvent));
 
