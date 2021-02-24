@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import social.app.backoffice.BackofficeContextInfrastructureTestCase;
 import social.app.backoffice.courses.domain.BackofficeCourse;
-import social.app.backoffice.courses.domain.BackofficeCourseRepository;
 import social.app.backoffice.courses.domain.BackofficeCourseCriteriaMother;
 import social.app.backoffice.courses.domain.BackofficeCourseMother;
+import social.app.backoffice.courses.domain.BackofficeCourseRepository;
 import social.app.shared.domain.criteria.Criteria;
 
 import javax.transaction.Transactional;

@@ -1,4 +1,4 @@
-package social.app.apps.rrss.backend.controller.Users;
+package social.app.apps.rrss.backend.controller.users;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import social.app.rrss.courses.application.create.CreateCourseCommand;
 import social.app.rrss.users.application.create.CreateUserCommand;
 import social.app.shared.domain.DomainError;
 import social.app.shared.domain.bus.command.CommandBus;
@@ -27,7 +26,7 @@ public final class UserPutController extends ApiController {
         @PathVariable String id,
         @RequestBody Request request
     ) throws CommandHandlerExecutionError {
-        dispatch(new CreateCourseCommand(id, request.name(), request.email()));
+        dispatch(new CreateUserCommand(id, request.name(), request.email()));
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

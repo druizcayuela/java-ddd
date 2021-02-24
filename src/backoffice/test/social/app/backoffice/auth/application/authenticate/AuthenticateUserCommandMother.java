@@ -1,8 +1,8 @@
 package social.app.backoffice.auth.application.authenticate;
 
 import social.app.backoffice.auth.domain.AuthPassword;
-import social.app.backoffice.auth.domain.AuthUsername;
 import social.app.backoffice.auth.domain.AuthPasswordMother;
+import social.app.backoffice.auth.domain.AuthUsername;
 import social.app.backoffice.auth.domain.AuthUsernameMother;
 
 public final class AuthenticateUserCommandMother {

@@ -2,8 +2,8 @@ package social.app.rrss.shared.infrastructure.bus.event.mysql;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import social.app.rrss.courses.domain.CourseCreatedDomainEventMother;
 import social.app.rrss.RRSSContextInfrastructureTestCase;
+import social.app.rrss.courses.domain.CourseCreatedDomainEventMother;
 import social.app.shared.domain.course.CourseCreatedDomainEvent;
 import social.app.shared.infrastructure.bus.event.mysql.MySqlDomainEventsConsumer;
 import social.app.shared.infrastructure.bus.event.mysql.MySqlEventBus;

@@ -3,10 +3,10 @@ package social.app.shared.infrastructure.bus.event.mysql;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Qualifier;
-import social.app.shared.infrastructure.bus.event.spring.SpringApplicationEventBus;
 import social.app.shared.domain.Utils;
 import social.app.shared.domain.bus.event.DomainEvent;
 import social.app.shared.infrastructure.bus.event.DomainEventsInformation;
+import social.app.shared.infrastructure.bus.event.spring.SpringApplicationEventBus;
 
 import javax.transaction.Transactional;
 import java.lang.reflect.InvocationTargetException;

@@ -1,7 +1,6 @@
 package social.app.shared.infrastructure.bus.event.spring;
 
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.context.annotation.Primary;
 import social.app.shared.domain.Service;
 import social.app.shared.domain.bus.event.DomainEvent;
 import social.app.shared.domain.bus.event.EventBus;

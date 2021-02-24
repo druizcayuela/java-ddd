@@ -4,9 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import social.app.backoffice.auth.AuthModuleUnitTestCase;
 import social.app.backoffice.auth.domain.AuthUser;
+import social.app.backoffice.auth.domain.AuthUserMother;
 import social.app.backoffice.auth.domain.InvalidAuthCredentials;
 import social.app.backoffice.auth.domain.InvalidAuthUsername;
-import social.app.backoffice.auth.domain.AuthUserMother;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

@@ -4,10 +4,10 @@ import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import social.app.shared.infrastructure.config.Parameter;
-import social.app.shared.infrastructure.config.ParameterNotExist;
 import social.app.shared.infrastructure.bus.event.DomainEventSubscribersInformation;
 import social.app.shared.infrastructure.bus.event.DomainEventsInformation;
+import social.app.shared.infrastructure.config.Parameter;
+import social.app.shared.infrastructure.config.ParameterNotExist;
 
 import java.util.ArrayList;
 import java.util.Collection;

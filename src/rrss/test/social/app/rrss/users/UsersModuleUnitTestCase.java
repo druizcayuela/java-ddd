@@ -1,8 +1,6 @@
 package social.app.rrss.users;
 
 import org.junit.jupiter.api.BeforeEach;
-import social.app.rrss.courses.domain.Course;
-import social.app.rrss.courses.domain.CourseRepository;
 import social.app.rrss.users.domain.User;
 import social.app.rrss.users.domain.UserRepository;
 import social.app.shared.infrastructure.UnitTestCase;

@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import social.app.backoffice.BackofficeContextInfrastructureTestCase;
 import social.app.backoffice.courses.domain.BackofficeCourse;
-import social.app.backoffice.courses.domain.BackofficeCourseRepository;
 import social.app.backoffice.courses.domain.BackofficeCourseCriteriaMother;
 import social.app.backoffice.courses.domain.BackofficeCourseMother;
+import social.app.backoffice.courses.domain.BackofficeCourseRepository;
 import social.app.shared.domain.criteria.Criteria;
 
 import java.util.Arrays;

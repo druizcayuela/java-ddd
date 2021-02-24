@@ -3,7 +3,6 @@ package social.app.rrss.users.infrastructure.persistence;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
-
 import social.app.rrss.users.domain.User;
 import social.app.rrss.users.domain.UserRepository;
 import social.app.shared.domain.Service;
