@@ -27,3 +27,10 @@ start-rrss_backend:
 start-backoffice_backend:
 	@./gradlew :run --args='backoffice_backend server'
 
+# Debug mode the app
+debug-rrss_backend:
+	@./gradlew :run --args='rrss_backend server' --debug-jvm
+
+debug-backoffice_backend:
+	@./gradlew :run --args='backoffice_backend server' --debug-jvm
+

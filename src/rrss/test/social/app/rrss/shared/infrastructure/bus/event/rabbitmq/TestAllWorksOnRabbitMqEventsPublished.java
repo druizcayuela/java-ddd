@@ -5,11 +5,11 @@ import social.app.shared.domain.bus.event.DomainEventSubscriber;
 import social.app.shared.domain.user.UserCreatedDomainEvent;
 
 @Service
-@DomainEventSubscriber({UserCreatedDomainEvent.class})
+@DomainEventSubscriber({TestCreatedDomainEvent.class})
 public final class TestAllWorksOnRabbitMqEventsPublished {
     public Boolean hasBeenExecuted = false;
 
-    public void on(UserCreatedDomainEvent event) {
+    public void on(TestCreatedDomainEvent event) {
         hasBeenExecuted = true;
     }
 }

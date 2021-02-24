@@ -4,8 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import social.app.rrss.RRSSContextInfrastructureTestCase;
-import social.app.rrss.users.domain.UserCreatedDomainEventMother;
-import social.app.shared.domain.user.UserCreatedDomainEvent;
+import social.app.shared.domain.WordMother;
 import social.app.shared.infrastructure.bus.event.DomainEventSubscriberInformation;
 import social.app.shared.infrastructure.bus.event.DomainEventSubscribersInformation;
 import social.app.shared.infrastructure.bus.event.rabbitmq.RabbitMqDomainEventsConsumer;
@@ -13,6 +12,7 @@ import social.app.shared.infrastructure.bus.event.rabbitmq.RabbitMqEventBus;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.UUID;
 
 import static org.junit.Assert.assertTrue;
 
@@ -33,7 +33,7 @@ public final class RabbitMqEventBusShould extends RRSSContextInfrastructureTestC
                 new HashMap<Class<?>, DomainEventSubscriberInformation>() {{
                     put(TestAllWorksOnRabbitMqEventsPublished.class, new DomainEventSubscriberInformation(
                         TestAllWorksOnRabbitMqEventsPublished.class,
-                        Collections.singletonList(UserCreatedDomainEvent.class)
+                        Collections.singletonList(TestCreatedDomainEvent.class)
                     ));
                 }}
             )
@@ -42,7 +42,7 @@ public final class RabbitMqEventBusShould extends RRSSContextInfrastructureTestC
 
     @Test
     void publish_and_consume_domain_events_from_rabbitmq() throws Exception {
-        UserCreatedDomainEvent domainEvent = UserCreatedDomainEventMother.random();
+        TestCreatedDomainEvent domainEvent = new TestCreatedDomainEvent(UUID.randomUUID().toString(), WordMother.random());
 
         eventBus.publish(Collections.singletonList(domainEvent));
 

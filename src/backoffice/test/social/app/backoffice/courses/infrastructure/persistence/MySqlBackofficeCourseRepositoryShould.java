@@ -1,5 +1,6 @@
 package social.app.backoffice.courses.infrastructure.persistence;
 
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,9 +13,11 @@ import social.app.shared.domain.criteria.Criteria;
 
 import javax.transaction.Transactional;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Transactional
 class MySqlBackofficeCourseRepositoryShould extends BackofficeContextInfrastructureTestCase {
@@ -35,7 +38,9 @@ class MySqlBackofficeCourseRepositoryShould extends BackofficeContextInfrastruct
         repository.save(course);
         repository.save(anotherCourse);
 
-        assertThat(Arrays.asList(course, anotherCourse), containsInAnyOrder(repository.searchAll().toArray()));
+        List<BackofficeCourse> allCourses = repository.searchAll();
+        assertTrue(allCourses.contains(course));
+        assertTrue(allCourses.contains(anotherCourse));
     }
 
     @Test
