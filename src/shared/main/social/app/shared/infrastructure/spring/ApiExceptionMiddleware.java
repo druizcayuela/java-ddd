@@ -46,6 +46,8 @@ public final class ApiExceptionMiddleware implements Filter {
                     handleCustomError(response, httpResponse, (ApiController) possibleController, exception);
                 }
             }
+        } catch (NullPointerException ex) {
+            System.out.println("Error comes from: " + httpRequest.getRequestURL());
         } catch (Exception e) {
             throw new ServletException(e);
         }
