@@ -7,11 +7,11 @@ import social.app.shared.domain.bus.query.*;
 @Service
 public final class InMemoryQueryBus implements QueryBus {
     private final QueryHandlersInformation information;
-    private final ApplicationContext       context;
+    private final ApplicationContext context;
 
     public InMemoryQueryBus(QueryHandlersInformation information, ApplicationContext context) {
         this.information = information;
-        this.context     = context;
+        this.context = context;
     }
 
     @Override

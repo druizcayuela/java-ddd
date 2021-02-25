@@ -1,6 +1,5 @@
 package social.app.backoffice.courses.infrastructure.persistence;
 
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -32,7 +31,7 @@ class MySqlBackofficeCourseRepositoryShould extends BackofficeContextInfrastruct
 
     @Test
     void search_all_existing_courses() {
-        BackofficeCourse course        = BackofficeCourseMother.random();
+        BackofficeCourse course = BackofficeCourseMother.random();
         BackofficeCourse anotherCourse = BackofficeCourseMother.random();
 
         repository.save(course);
@@ -45,10 +44,10 @@ class MySqlBackofficeCourseRepositoryShould extends BackofficeContextInfrastruct
 
     @Test
     void search_courses_using_a_criteria() {
-        BackofficeCourse matchingCourse        = BackofficeCourseMother.create("DDD en Java", "3 days");
+        BackofficeCourse matchingCourse = BackofficeCourseMother.create("DDD en Java", "3 days");
         BackofficeCourse anotherMatchingCourse = BackofficeCourseMother.create("DDD en TypeScript", "2.5 days");
-        BackofficeCourse intellijCourse        = BackofficeCourseMother.create("Exprimiendo Intellij", "48 hours");
-        BackofficeCourse cobolCourse           = BackofficeCourseMother.create("DDD en Cobol", "5 years");
+        BackofficeCourse intellijCourse = BackofficeCourseMother.create("Exprimiendo Intellij", "48 hours");
+        BackofficeCourse cobolCourse = BackofficeCourseMother.create("DDD en Cobol", "5 years");
 
         Criteria criteria = BackofficeCourseCriteriaMother.nameAndDurationContains("DDD", "days");
 

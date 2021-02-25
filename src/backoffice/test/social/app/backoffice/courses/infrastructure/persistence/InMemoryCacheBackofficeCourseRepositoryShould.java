@@ -24,7 +24,7 @@ final class InMemoryCacheBackofficeCourseRepositoryShould extends BackofficeCont
     @BeforeEach
     protected void setUp() {
         innerRepository = mock(BackofficeCourseRepository.class);
-        repository      = new InMemoryCacheBackofficeCourseRepository(innerRepository);
+        repository = new InMemoryCacheBackofficeCourseRepository(innerRepository);
     }
 
     @Test
@@ -38,9 +38,9 @@ final class InMemoryCacheBackofficeCourseRepositoryShould extends BackofficeCont
 
     @Test
     void search_all_existing_courses() {
-        BackofficeCourse       course        = BackofficeCourseMother.random();
-        BackofficeCourse       anotherCourse = BackofficeCourseMother.random();
-        List<BackofficeCourse> courses       = Arrays.asList(course, anotherCourse);
+        BackofficeCourse course = BackofficeCourseMother.random();
+        BackofficeCourse anotherCourse = BackofficeCourseMother.random();
+        List<BackofficeCourse> courses = Arrays.asList(course, anotherCourse);
 
         shouldSearchAll(courses);
 
@@ -49,9 +49,9 @@ final class InMemoryCacheBackofficeCourseRepositoryShould extends BackofficeCont
 
     @Test
     void search_all_existing_courses_without_hitting_the_inner_repository_the_second_time() {
-        BackofficeCourse       course        = BackofficeCourseMother.random();
-        BackofficeCourse       anotherCourse = BackofficeCourseMother.random();
-        List<BackofficeCourse> courses       = Arrays.asList(course, anotherCourse);
+        BackofficeCourse course = BackofficeCourseMother.random();
+        BackofficeCourse anotherCourse = BackofficeCourseMother.random();
+        List<BackofficeCourse> courses = Arrays.asList(course, anotherCourse);
 
         shouldSearchAll(courses);
 
@@ -61,9 +61,9 @@ final class InMemoryCacheBackofficeCourseRepositoryShould extends BackofficeCont
 
     @Test
     void search_courses_using_a_criteria() {
-        BackofficeCourse       matchingCourse        = BackofficeCourseMother.create("DDD en Java", "3 days");
-        BackofficeCourse       anotherMatchingCourse = BackofficeCourseMother.create("DDD en TypeScript", "2.5 days");
-        List<BackofficeCourse> matchingCourses       = Arrays.asList(matchingCourse, anotherMatchingCourse);
+        BackofficeCourse matchingCourse = BackofficeCourseMother.create("DDD en Java", "3 days");
+        BackofficeCourse anotherMatchingCourse = BackofficeCourseMother.create("DDD en TypeScript", "2.5 days");
+        List<BackofficeCourse> matchingCourses = Arrays.asList(matchingCourse, anotherMatchingCourse);
 
         Criteria criteria = BackofficeCourseCriteriaMother.nameAndDurationContains("DDD", "days");
 
@@ -74,9 +74,9 @@ final class InMemoryCacheBackofficeCourseRepositoryShould extends BackofficeCont
 
     @Test
     void search_courses_using_a_criteria_without_hitting_the_inner_repository_the_second_time() {
-        BackofficeCourse       matchingCourse        = BackofficeCourseMother.create("DDD en Java", "3 days");
-        BackofficeCourse       anotherMatchingCourse = BackofficeCourseMother.create("DDD en TypeScript", "2.5 days");
-        List<BackofficeCourse> matchingCourses       = Arrays.asList(matchingCourse, anotherMatchingCourse);
+        BackofficeCourse matchingCourse = BackofficeCourseMother.create("DDD en Java", "3 days");
+        BackofficeCourse anotherMatchingCourse = BackofficeCourseMother.create("DDD en TypeScript", "2.5 days");
+        List<BackofficeCourse> matchingCourses = Arrays.asList(matchingCourse, anotherMatchingCourse);
 
         Criteria criteria = BackofficeCourseCriteriaMother.nameAndDurationContains("DDD", "days");
 

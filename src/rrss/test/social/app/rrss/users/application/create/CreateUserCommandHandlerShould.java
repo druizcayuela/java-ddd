@@ -23,7 +23,7 @@ final class CreateUserCommandHandlerShould extends UsersModuleUnitTestCase {
     void create_a_valid_course() {
         CreateUserCommand command = CreateUserCommandMother.random();
 
-        User course      = UserMother.fromRequest(command);
+        User course = UserMother.fromRequest(command);
         UserCreatedDomainEvent domainEvent = UserCreatedDomainEventMother.fromUser(course);
 
         handler.handle(command);

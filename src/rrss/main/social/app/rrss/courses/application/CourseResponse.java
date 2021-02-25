@@ -9,8 +9,8 @@ public final class CourseResponse implements Response {
     private final String duration;
 
     public CourseResponse(String id, String name, String duration) {
-        this.id       = id;
-        this.name     = name;
+        this.id = id;
+        this.name = name;
         this.duration = duration;
     }
 

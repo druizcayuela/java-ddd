@@ -9,7 +9,6 @@ import social.app.shared.domain.Service;
 import social.app.shared.infrastructure.hibernate.HibernateRepository;
 
 
-
 @Service
 @Transactional("rrss-transaction_manager")
 public class MySqlUserRepository extends HibernateRepository<User> implements UserRepository {

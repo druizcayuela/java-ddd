@@ -22,7 +22,7 @@ public final class DomainEventSubscribersInformation {
     }
 
     private static HashMap<Class<?>, DomainEventSubscriberInformation> scanDomainEventSubscribers() {
-        Reflections   reflections = new Reflections("social.app");
+        Reflections reflections = new Reflections("social.app");
         Set<Class<?>> subscribers = reflections.getTypesAnnotatedWith(DomainEventSubscriber.class);
 
         HashMap<Class<?>, DomainEventSubscriberInformation> subscribersInformation = new HashMap<>();
@@ -45,9 +45,9 @@ public final class DomainEventSubscribersInformation {
 
     public String[] rabbitMqFormattedNames() {
         return information.values()
-                          .stream()
-                          .map(DomainEventSubscriberInformation::formatRabbitMqQueueName)
-                          .distinct()
-                          .toArray(String[]::new);
+            .stream()
+            .map(DomainEventSubscriberInformation::formatRabbitMqQueueName)
+            .distinct()
+            .toArray(String[]::new);
     }
 }

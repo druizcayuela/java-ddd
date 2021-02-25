@@ -6,19 +6,19 @@ import social.app.shared.domain.course.CourseCreatedDomainEvent;
 import java.util.Objects;
 
 public final class Course extends AggregateRoot {
-    private final CourseId       id;
-    private final CourseName     name;
+    private final CourseId id;
+    private final CourseName name;
     private final CourseDuration duration;
 
     public Course(CourseId id, CourseName name, CourseDuration duration) {
-        this.id       = id;
-        this.name     = name;
+        this.id = id;
+        this.name = name;
         this.duration = duration;
     }
 
     private Course() {
-        id       = null;
-        name     = null;
+        id = null;
+        name = null;
         duration = null;
     }
 
@@ -52,8 +52,8 @@ public final class Course extends AggregateRoot {
         }
         Course course = (Course) o;
         return id.equals(course.id) &&
-               name.equals(course.name) &&
-               duration.equals(course.duration);
+            name.equals(course.name) &&
+            duration.equals(course.duration);
     }
 
     @Override

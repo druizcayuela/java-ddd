@@ -29,9 +29,9 @@ public final class BackofficeCoursesByCriteriaSearcher {
 
         return new BackofficeCoursesResponse(
             repository.matching(criteria)
-                      .stream()
-                      .map(BackofficeCourseResponse::fromAggregate)
-                      .collect(Collectors.toList())
+                .stream()
+                .map(BackofficeCourseResponse::fromAggregate)
+                .collect(Collectors.toList())
         );
     }
 }

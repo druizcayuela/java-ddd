@@ -18,9 +18,9 @@ import static org.junit.Assert.assertTrue;
 
 public final class RabbitMqEventBusShould extends RRSSContextInfrastructureTestCase {
     @Autowired
-    private RabbitMqEventBus                      eventBus;
+    private RabbitMqEventBus eventBus;
     @Autowired
-    private RabbitMqDomainEventsConsumer          consumer;
+    private RabbitMqDomainEventsConsumer consumer;
     @Autowired
     private TestAllWorksOnRabbitMqEventsPublished subscriber;
 

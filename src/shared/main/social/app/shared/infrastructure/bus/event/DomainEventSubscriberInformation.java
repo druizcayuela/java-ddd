@@ -6,14 +6,14 @@ import social.app.shared.domain.bus.event.DomainEvent;
 import java.util.List;
 
 public final class DomainEventSubscriberInformation {
-    private final Class<?>                           subscriberClass;
+    private final Class<?> subscriberClass;
     private final List<Class<? extends DomainEvent>> subscribedEvents;
 
     public DomainEventSubscriberInformation(
         Class<?> subscriberClass,
         List<Class<? extends DomainEvent>> subscribedEvents
     ) {
-        this.subscriberClass  = subscriberClass;
+        this.subscriberClass = subscriberClass;
         this.subscribedEvents = subscribedEvents;
     }
 

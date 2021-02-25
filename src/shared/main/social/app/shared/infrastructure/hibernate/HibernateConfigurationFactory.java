@@ -75,7 +75,7 @@ public final class HibernateConfigurationFactory {
     }
 
     private List<Resource> searchMappingFiles(String contextName) {
-        List<String> modules   = subdirectoriesFor(contextName);
+        List<String> modules = subdirectoriesFor(contextName);
         List<String> goodPaths = new ArrayList<>();
 
         for (String module : modules) {
@@ -95,7 +95,7 @@ public final class HibernateConfigurationFactory {
         String[] files = new File(path).list((current, name) -> new File(current, name).isDirectory());
 
         if (null == files) {
-            path  = "./main/social/app/" + contextName + "/";
+            path = "./main/social/app/" + contextName + "/";
             files = new File(path).list((current, name) -> new File(current, name).isDirectory());
         }
 

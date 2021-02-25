@@ -11,13 +11,13 @@ public final class TestCreatedDomainEvent extends DomainEvent {
     public TestCreatedDomainEvent() {
         super(null);
 
-        this.name     = null;
+        this.name = null;
     }
 
     public TestCreatedDomainEvent(String aggregateId, String name) {
         super(aggregateId);
 
-        this.name     = name;
+        this.name = name;
     }
 
     public TestCreatedDomainEvent(
@@ -28,7 +28,7 @@ public final class TestCreatedDomainEvent extends DomainEvent {
     ) {
         super(aggregateId, eventId, occurredOn);
 
-        this.name     = name;
+        this.name = name;
     }
 
     @Override

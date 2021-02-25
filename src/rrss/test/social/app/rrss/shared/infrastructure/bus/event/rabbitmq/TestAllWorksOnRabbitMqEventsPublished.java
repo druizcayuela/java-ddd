@@ -2,7 +2,6 @@ package social.app.rrss.shared.infrastructure.bus.event.rabbitmq;
 
 import social.app.shared.domain.Service;
 import social.app.shared.domain.bus.event.DomainEventSubscriber;
-import social.app.shared.domain.user.UserCreatedDomainEvent;
 
 @Service
 @DomainEventSubscriber({TestCreatedDomainEvent.class})

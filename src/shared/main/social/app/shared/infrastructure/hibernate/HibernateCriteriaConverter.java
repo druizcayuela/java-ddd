@@ -11,7 +11,7 @@ import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 
 public final class HibernateCriteriaConverter<T> {
-    private final CriteriaBuilder                                                 builder;
+    private final CriteriaBuilder builder;
     private final HashMap<FilterOperator, BiFunction<Filter, Root<T>, Predicate>> predicateTransformers = new HashMap<FilterOperator, BiFunction<Filter, Root<T>, Predicate>>() {{
         put(FilterOperator.EQUAL, HibernateCriteriaConverter.this::equalsPredicateTransformer);
         put(FilterOperator.NOT_EQUAL, HibernateCriteriaConverter.this::notEqualsPredicateTransformer);
@@ -27,13 +27,13 @@ public final class HibernateCriteriaConverter<T> {
 
     public CriteriaQuery<T> convert(Criteria criteria, Class<T> aggregateClass) {
         CriteriaQuery<T> hibernateCriteria = builder.createQuery(aggregateClass);
-        Root<T>          root              = hibernateCriteria.from(aggregateClass);
+        Root<T> root = hibernateCriteria.from(aggregateClass);
 
         hibernateCriteria.where(formatPredicates(criteria.filters().filters(), root));
 
         if (criteria.order().hasOrder()) {
             Path<Object> orderBy = root.get(criteria.order().orderBy().value());
-            Order        order   = criteria.order().orderType().isAsc() ? builder.asc(orderBy) : builder.desc(orderBy);
+            Order order = criteria.order().orderType().isAsc() ? builder.asc(orderBy) : builder.desc(orderBy);
 
             hibernateCriteria.orderBy(order);
         }

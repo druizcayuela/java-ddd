@@ -9,8 +9,8 @@ public final class BackofficeCourseResponse implements Response {
     private final String duration;
 
     public BackofficeCourseResponse(String id, String name, String duration) {
-        this.id       = id;
-        this.name     = name;
+        this.id = id;
+        this.name = name;
         this.duration = duration;
     }
 

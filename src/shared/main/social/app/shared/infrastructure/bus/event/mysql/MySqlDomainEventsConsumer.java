@@ -17,20 +17,20 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MySqlDomainEventsConsumer {
-    private final SessionFactory            sessionFactory;
-    private final DomainEventsInformation   domainEventsInformation;
+    private final SessionFactory sessionFactory;
+    private final DomainEventsInformation domainEventsInformation;
     private final SpringApplicationEventBus bus;
-    private final Integer                   CHUNKS     = 200;
-    private       Boolean                   shouldStop = false;
+    private final Integer CHUNKS = 200;
+    private Boolean shouldStop = false;
 
     public MySqlDomainEventsConsumer(
         @Qualifier("rrss-session_factory") SessionFactory sessionFactory,
         DomainEventsInformation domainEventsInformation,
         SpringApplicationEventBus bus
     ) {
-        this.sessionFactory          = sessionFactory;
+        this.sessionFactory = sessionFactory;
         this.domainEventsInformation = domainEventsInformation;
-        this.bus                     = bus;
+        this.bus = bus;
     }
 
     @Transactional

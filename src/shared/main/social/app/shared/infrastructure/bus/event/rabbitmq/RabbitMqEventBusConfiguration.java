@@ -18,9 +18,9 @@ import java.util.stream.Collectors;
 @Configuration
 public class RabbitMqEventBusConfiguration {
     private final DomainEventSubscribersInformation domainEventSubscribersInformation;
-    private final DomainEventsInformation           domainEventsInformation;
+    private final DomainEventsInformation domainEventsInformation;
     private final Parameter config;
-    private final String                            exchangeName;
+    private final String exchangeName;
 
     public RabbitMqEventBusConfiguration(
         DomainEventSubscribersInformation domainEventSubscribersInformation,
@@ -28,9 +28,9 @@ public class RabbitMqEventBusConfiguration {
         Parameter config
     ) throws ParameterNotExist {
         this.domainEventSubscribersInformation = domainEventSubscribersInformation;
-        this.domainEventsInformation           = domainEventsInformation;
-        this.config                            = config;
-        this.exchangeName                      = config.get("RABBITMQ_EXCHANGE");
+        this.domainEventsInformation = domainEventsInformation;
+        this.config = config;
+        this.exchangeName = config.get("RABBITMQ_EXCHANGE");
     }
 
     @Bean
@@ -47,13 +47,13 @@ public class RabbitMqEventBusConfiguration {
 
     @Bean
     public Declarables declaration() {
-        String retryExchangeName      = RabbitMqExchangeNameFormatter.retry(exchangeName);
+        String retryExchangeName = RabbitMqExchangeNameFormatter.retry(exchangeName);
         String deadLetterExchangeName = RabbitMqExchangeNameFormatter.deadLetter(exchangeName);
 
-        TopicExchange    domainEventsExchange           = new TopicExchange(exchangeName, true, false);
-        TopicExchange    retryDomainEventsExchange      = new TopicExchange(retryExchangeName, true, false);
-        TopicExchange    deadLetterDomainEventsExchange = new TopicExchange(deadLetterExchangeName, true, false);
-        List<Declarable> declarables                    = new ArrayList<>();
+        TopicExchange domainEventsExchange = new TopicExchange(exchangeName, true, false);
+        TopicExchange retryDomainEventsExchange = new TopicExchange(retryExchangeName, true, false);
+        TopicExchange deadLetterDomainEventsExchange = new TopicExchange(deadLetterExchangeName, true, false);
+        List<Declarable> declarables = new ArrayList<>();
         declarables.add(domainEventsExchange);
         declarables.add(retryDomainEventsExchange);
         declarables.add(deadLetterDomainEventsExchange);
@@ -75,8 +75,8 @@ public class RabbitMqEventBusConfiguration {
         TopicExchange deadLetterDomainEventsExchange
     ) {
         return domainEventSubscribersInformation.all().stream().map(information -> {
-            String queueName           = RabbitMqQueueNameFormatter.format(information);
-            String retryQueueName      = RabbitMqQueueNameFormatter.formatRetry(information);
+            String queueName = RabbitMqQueueNameFormatter.format(information);
+            String retryQueueName = RabbitMqQueueNameFormatter.formatRetry(information);
             String deadLetterQueueName = RabbitMqQueueNameFormatter.formatDeadLetter(information);
 
             Queue queue = QueueBuilder.durable(queueName).build();

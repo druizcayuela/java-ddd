@@ -16,7 +16,7 @@ public final class CourseFinder {
 
     public CourseResponse find(CourseId id) throws CourseNotExist {
         return repository.search(id)
-                         .map(CourseResponse::fromAggregate)
-                         .orElseThrow(() -> new CourseNotExist(id));
+            .map(CourseResponse::fromAggregate)
+            .orElseThrow(() -> new CourseNotExist(id));
     }
 }

@@ -13,15 +13,15 @@ public final class UserCreatedDomainEvent extends DomainEvent {
     public UserCreatedDomainEvent() {
         super(null);
 
-        this.name     = null;
-        this.email    = null;
+        this.name = null;
+        this.email = null;
     }
 
     public UserCreatedDomainEvent(String aggregateId, String name, String email) {
         super(aggregateId);
 
-        this.name     = name;
-        this.email    = email;
+        this.name = name;
+        this.email = email;
     }
 
     public UserCreatedDomainEvent(
@@ -33,8 +33,8 @@ public final class UserCreatedDomainEvent extends DomainEvent {
     ) {
         super(aggregateId, eventId, occurredOn);
 
-        this.name     = name;
-        this.email    = email;
+        this.name = name;
+        this.email = email;
     }
 
     @Override
@@ -84,7 +84,7 @@ public final class UserCreatedDomainEvent extends DomainEvent {
         }
         UserCreatedDomainEvent that = (UserCreatedDomainEvent) o;
         return name.equals(that.name) &&
-               email.equals(that.email);
+            email.equals(that.email);
     }
 
     @Override

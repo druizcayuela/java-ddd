@@ -15,8 +15,8 @@ public final class DomainEventsInformation {
     HashMap<String, Class<? extends DomainEvent>> indexedDomainEvents;
 
     public DomainEventsInformation() {
-        Reflections                       reflections = new Reflections("social.app");
-        Set<Class<? extends DomainEvent>> classes     = reflections.getSubTypesOf(DomainEvent.class);
+        Reflections reflections = new Reflections("social.app");
+        Set<Class<? extends DomainEvent>> classes = reflections.getSubTypesOf(DomainEvent.class);
 
         try {
             indexedDomainEvents = formatEvents(classes);
@@ -31,10 +31,10 @@ public final class DomainEventsInformation {
 
     public String forClass(Class<? extends DomainEvent> domainEventClass) {
         return indexedDomainEvents.entrySet()
-                                  .stream()
-                                  .filter(entry -> Objects.equals(entry.getValue(), domainEventClass))
-                                  .map(Map.Entry::getKey)
-                                  .findFirst().orElse("");
+            .stream()
+            .filter(entry -> Objects.equals(entry.getValue(), domainEventClass))
+            .map(Map.Entry::getKey)
+            .findFirst().orElse("");
     }
 
     private HashMap<String, Class<? extends DomainEvent>> formatEvents(

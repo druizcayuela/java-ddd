@@ -8,5 +8,5 @@ import social.app.rrss.courses.infrastructure.persistence.InMemoryCourseReposito
 public abstract class CoursesModuleInfrastructureTestCase extends RRSSContextInfrastructureTestCase {
     protected InMemoryCourseRepository inMemoryCourseRepository = new InMemoryCourseRepository();
     @Autowired
-    protected CourseRepository         mySqlCourseRepository;
+    protected CourseRepository mySqlCourseRepository;
 }

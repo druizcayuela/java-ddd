@@ -11,8 +11,8 @@ import social.app.shared.infrastructure.bus.event.spring.SpringApplicationEventB
 
 @Configuration
 public class RRSSMySqlEventBusConfiguration {
-    private final SessionFactory            sessionFactory;
-    private final DomainEventsInformation   domainEventsInformation;
+    private final SessionFactory sessionFactory;
+    private final DomainEventsInformation domainEventsInformation;
     private final SpringApplicationEventBus bus;
 
     public RRSSMySqlEventBusConfiguration(
@@ -20,9 +20,9 @@ public class RRSSMySqlEventBusConfiguration {
         DomainEventsInformation domainEventsInformation,
         SpringApplicationEventBus bus
     ) {
-        this.sessionFactory          = sessionFactory;
+        this.sessionFactory = sessionFactory;
         this.domainEventsInformation = domainEventsInformation;
-        this.bus                     = bus;
+        this.bus = bus;
     }
 
     @Bean

@@ -14,7 +14,7 @@ import java.util.Collections;
 @Transactional
 class MySqlEventBusShould extends RRSSContextInfrastructureTestCase {
     @Autowired
-    private MySqlEventBus             eventBus;
+    private MySqlEventBus eventBus;
     @Autowired
     private MySqlDomainEventsConsumer consumer;
 

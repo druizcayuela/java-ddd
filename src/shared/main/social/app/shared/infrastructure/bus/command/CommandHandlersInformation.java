@@ -15,8 +15,8 @@ public final class CommandHandlersInformation {
     HashMap<Class<? extends Command>, Class<? extends CommandHandler>> indexedCommandHandlers;
 
     public CommandHandlersInformation() {
-        Reflections                          reflections = new Reflections("social.app");
-        Set<Class<? extends CommandHandler>> classes     = reflections.getSubTypesOf(CommandHandler.class);
+        Reflections reflections = new Reflections("social.app");
+        Set<Class<? extends CommandHandler>> classes = reflections.getSubTypesOf(CommandHandler.class);
 
         indexedCommandHandlers = formatHandlers(classes);
     }
@@ -37,7 +37,7 @@ public final class CommandHandlersInformation {
         HashMap<Class<? extends Command>, Class<? extends CommandHandler>> handlers = new HashMap<>();
 
         for (Class<? extends CommandHandler> handler : commandHandlers) {
-            ParameterizedType        paramType    = (ParameterizedType) handler.getGenericInterfaces()[0];
+            ParameterizedType paramType = (ParameterizedType) handler.getGenericInterfaces()[0];
             Class<? extends Command> commandClass = (Class<? extends Command>) paramType.getActualTypeArguments()[0];
 
             handlers.put(commandClass, handler);

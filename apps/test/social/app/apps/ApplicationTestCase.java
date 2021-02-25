@@ -25,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public abstract class ApplicationTestCase {
     @Autowired
-    private MockMvc  mockMvc;
+    private MockMvc mockMvc;
     @Autowired
     private EventBus eventBus;
 

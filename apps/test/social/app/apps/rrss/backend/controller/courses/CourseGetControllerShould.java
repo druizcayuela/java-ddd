@@ -6,7 +6,7 @@ import social.app.apps.rrss.RRSSApplicationTestCase;
 final class CourseGetControllerShould extends RRSSApplicationTestCase {
     @Test
     void find_an_existing_course() throws Exception {
-        String id   = "99ad55f5-6eab-4d73-b383-c63268e251e8";
+        String id = "99ad55f5-6eab-4d73-b383-c63268e251e8";
         String body = "{\"name\": \"The best course\", \"duration\": \"5 hours\"}";
 
         givenThereIsACourse(id, body);
@@ -16,7 +16,7 @@ final class CourseGetControllerShould extends RRSSApplicationTestCase {
 
     @Test
     void no_find_a_non_existing_course() throws Exception {
-        String id   = "4ecc0cb3-05b2-4238-b7e1-1fbb0d5d3661";
+        String id = "4ecc0cb3-05b2-4238-b7e1-1fbb0d5d3661";
         String body = "{\"error_code\": \"course_not_exist\", \"message\": \"The course <4ecc0cb3-05b2-4238-b7e1-1fbb0d5d3661> doesn't exist\"}";
 
         assertResponse(String.format("/courses/%s", id), 404, body);

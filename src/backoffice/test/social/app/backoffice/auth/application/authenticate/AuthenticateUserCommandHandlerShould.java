@@ -22,7 +22,7 @@ final class AuthenticateUserCommandHandlerShould extends AuthModuleUnitTestCase 
 
     @Test
     void authenticate_a_valid_user() {
-        AuthenticateUserCommand command  = AuthenticateUserCommandMother.random();
+        AuthenticateUserCommand command = AuthenticateUserCommandMother.random();
         AuthUser authUser = AuthUserMother.fromCommand(command);
 
         shouldSearch(authUser.username(), authUser);
@@ -33,8 +33,8 @@ final class AuthenticateUserCommandHandlerShould extends AuthModuleUnitTestCase 
     @Test
     void throw_an_exception_when_the_user_does_not_exist() {
         assertThrows(InvalidAuthUsername.class, () -> {
-            AuthenticateUserCommand command  = AuthenticateUserCommandMother.random();
-            AuthUser                authUser = AuthUserMother.fromCommand(command);
+            AuthenticateUserCommand command = AuthenticateUserCommandMother.random();
+            AuthUser authUser = AuthUserMother.fromCommand(command);
 
             shouldSearch(authUser.username());
 
@@ -45,8 +45,8 @@ final class AuthenticateUserCommandHandlerShould extends AuthModuleUnitTestCase 
     @Test
     void throw_an_exception_when_the_password_does_not_math() {
         assertThrows(InvalidAuthCredentials.class, () -> {
-            AuthenticateUserCommand command  = AuthenticateUserCommandMother.random();
-            AuthUser                authUser = AuthUserMother.withUsername(command.username());
+            AuthenticateUserCommand command = AuthenticateUserCommandMother.random();
+            AuthUser authUser = AuthUserMother.withUsername(command.username());
 
             shouldSearch(authUser.username(), authUser);
 

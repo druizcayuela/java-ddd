@@ -15,8 +15,8 @@ public final class QueryHandlersInformation {
     HashMap<Class<? extends Query>, Class<? extends QueryHandler>> indexedQueryHandlers;
 
     public QueryHandlersInformation() {
-        Reflections                        reflections = new Reflections("social.app");
-        Set<Class<? extends QueryHandler>> classes     = reflections.getSubTypesOf(QueryHandler.class);
+        Reflections reflections = new Reflections("social.app");
+        Set<Class<? extends QueryHandler>> classes = reflections.getSubTypesOf(QueryHandler.class);
 
         indexedQueryHandlers = formatHandlers(classes);
     }
@@ -37,7 +37,7 @@ public final class QueryHandlersInformation {
         HashMap<Class<? extends Query>, Class<? extends QueryHandler>> handlers = new HashMap<>();
 
         for (Class<? extends QueryHandler> handler : queryHandlers) {
-            ParameterizedType      paramType  = (ParameterizedType) handler.getGenericInterfaces()[0];
+            ParameterizedType paramType = (ParameterizedType) handler.getGenericInterfaces()[0];
             Class<? extends Query> queryClass = (Class<? extends Query>) paramType.getActualTypeArguments()[0];
 
             handlers.put(queryClass, handler);

@@ -19,10 +19,10 @@ import java.sql.Types;
 import java.util.*;
 
 public class JsonListType implements UserType, DynamicParameterizedType {
-    private static final int[]        SQL_TYPES     = new int[]{Types.LONGVARCHAR};
+    private static final int[] SQL_TYPES = new int[]{Types.LONGVARCHAR};
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
-    private              JavaType     valueType     = null;
-    private              Class<?>     classType     = null;
+    private JavaType valueType = null;
+    private Class<?> classType = null;
 
     @Override
     public int[] sqlTypes() {
@@ -65,7 +65,7 @@ public class JsonListType implements UserType, DynamicParameterizedType {
     }
 
     public Object nullSafeGet(ResultSet rs, String[] names, Object owner) throws HibernateException, SQLException {
-        String value  = rs.getString(names[0]).replace("\"value\"", "").replace("{:", "").replace("}", "");
+        String value = rs.getString(names[0]).replace("\"value\"", "").replace("{:", "").replace("}", "");
         Object result = null;
         if (valueType == null) {
             throw new HibernateException("Value type not set.");
@@ -101,7 +101,7 @@ public class JsonListType implements UserType, DynamicParameterizedType {
         if (value == null) {
             return null;
         } else if (valueType.isCollectionLikeType()) {
-            Object     newValue           = new ArrayList<>();
+            Object newValue = new ArrayList<>();
             Collection newValueCollection = (Collection) newValue;
             newValueCollection.addAll((Collection) value);
             return newValueCollection;

@@ -22,7 +22,7 @@ final class CreateCourseCommandHandlerShould extends CoursesModuleUnitTestCase {
     void create_a_valid_course() {
         CreateCourseCommand command = CreateCourseCommandMother.random();
 
-        Course                   course      = CourseMother.fromRequest(command);
+        Course course = CourseMother.fromRequest(command);
         CourseCreatedDomainEvent domainEvent = CourseCreatedDomainEventMother.fromCourse(course);
 
         handler.handle(command);

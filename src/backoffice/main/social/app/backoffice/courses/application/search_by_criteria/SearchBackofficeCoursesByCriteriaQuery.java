@@ -8,10 +8,10 @@ import java.util.Optional;
 
 public final class SearchBackofficeCoursesByCriteriaQuery implements Query {
     private final List<HashMap<String, String>> filters;
-    private final Optional<String>              orderBy;
-    private final Optional<String>              orderType;
-    private final Optional<Integer>             limit;
-    private final Optional<Integer>             offset;
+    private final Optional<String> orderBy;
+    private final Optional<String> orderType;
+    private final Optional<Integer> limit;
+    private final Optional<Integer> offset;
 
     public SearchBackofficeCoursesByCriteriaQuery(
         List<HashMap<String, String>> filters,
@@ -20,11 +20,11 @@ public final class SearchBackofficeCoursesByCriteriaQuery implements Query {
         Optional<Integer> limit,
         Optional<Integer> offset
     ) {
-        this.filters   = filters;
-        this.orderBy   = orderBy;
+        this.filters = filters;
+        this.orderBy = orderBy;
         this.orderType = orderType;
-        this.limit     = limit;
-        this.offset    = offset;
+        this.limit = limit;
+        this.offset = offset;
     }
 
     public List<HashMap<String, String>> filters() {

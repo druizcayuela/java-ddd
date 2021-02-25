@@ -14,13 +14,13 @@ import java.util.List;
 @Service
 public class RabbitMqEventBus implements EventBus {
     private final RabbitMqPublisher publisher;
-    private final MySqlEventBus     failoverPublisher;
-    private final String            exchangeName;
+    private final MySqlEventBus failoverPublisher;
+    private final String exchangeName;
 
     public RabbitMqEventBus(RabbitMqPublisher publisher, MySqlEventBus failoverPublisher) {
-        this.publisher         = publisher;
+        this.publisher = publisher;
         this.failoverPublisher = failoverPublisher;
-        this.exchangeName      = "domain_events";
+        this.exchangeName = "domain_events";
     }
 
     @Override

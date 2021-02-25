@@ -6,15 +6,15 @@
 <hibernate-mapping>
     <class name="social.app.rrss.users.domain.User" table="users">
         <composite-id name="id" class="social.app.rrss.users.domain.UserId" access="field">
-            <key-property column="id" name="value" length="36" access="field" />
+            <key-property column="id" name="value" length="36" access="field"/>
         </composite-id>
 
         <component name="name" class="social.app.rrss.users.domain.UserName" access="field">
-            <property name="value" column="name" type="string" access="field" />
+            <property name="value" column="name" type="string" access="field"/>
         </component>
 
         <component name="email" class="social.app.rrss.users.domain.UserEmail" access="field">
-            <property name="value" column="email" type="string" access="field" />
+            <property name="value" column="email" type="string" access="field"/>
         </component>
     </class>
 </hibernate-mapping>

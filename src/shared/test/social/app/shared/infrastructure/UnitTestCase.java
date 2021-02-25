@@ -14,14 +14,14 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 public abstract class UnitTestCase {
-    protected EventBus      eventBus;
+    protected EventBus eventBus;
     protected QueryBus queryBus;
     protected UuidGenerator uuidGenerator;
 
     @BeforeEach
     protected void setUp() {
-        eventBus      = mock(EventBus.class);
-        queryBus      = mock(QueryBus.class);
+        eventBus = mock(EventBus.class);
+        queryBus = mock(QueryBus.class);
         uuidGenerator = mock(UuidGenerator.class);
     }
 

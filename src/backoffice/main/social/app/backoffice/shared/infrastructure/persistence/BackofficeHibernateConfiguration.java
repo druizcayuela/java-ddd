@@ -16,12 +16,12 @@ import java.io.IOException;
 @EnableTransactionManagement
 public class BackofficeHibernateConfiguration {
     private final HibernateConfigurationFactory factory;
-    private final Parameter                     config;
-    private final String                        CONTEXT_NAME = "backoffice";
+    private final Parameter config;
+    private final String CONTEXT_NAME = "backoffice";
 
     public BackofficeHibernateConfiguration(HibernateConfigurationFactory factory, Parameter config) {
         this.factory = factory;
-        this.config  = config;
+        this.config = config;
     }
 
     @Bean("backoffice-transaction_manager")

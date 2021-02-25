@@ -8,8 +8,8 @@ public final class CreateCourseCommand implements Command {
     private final String duration;
 
     public CreateCourseCommand(String id, String name, String duration) {
-        this.id       = id;
-        this.name     = name;
+        this.id = id;
+        this.name = name;
         this.duration = duration;
     }
 

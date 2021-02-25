@@ -16,8 +16,8 @@ public final class CreateCourseCommandHandler implements CommandHandler<CreateCo
 
     @Override
     public void handle(CreateCourseCommand command) {
-        CourseId       id       = new CourseId(command.id());
-        CourseName     name     = new CourseName(command.name());
+        CourseId id = new CourseId(command.id());
+        CourseName name = new CourseName(command.name());
         CourseDuration duration = new CourseDuration(command.duration());
 
         creator.create(id, name, duration);

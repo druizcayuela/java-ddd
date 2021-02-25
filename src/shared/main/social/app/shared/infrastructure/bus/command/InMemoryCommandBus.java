@@ -10,11 +10,11 @@ import social.app.shared.domain.bus.command.CommandHandlerExecutionError;
 @Service
 public final class InMemoryCommandBus implements CommandBus {
     private final CommandHandlersInformation information;
-    private final ApplicationContext         context;
+    private final ApplicationContext context;
 
     public InMemoryCommandBus(CommandHandlersInformation information, ApplicationContext context) {
         this.information = information;
-        this.context     = context;
+        this.context = context;
     }
 
     @Override

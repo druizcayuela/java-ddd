@@ -20,12 +20,12 @@ import java.util.Map;
 
 @Service
 public final class RabbitMqDomainEventsConsumer {
-    private final String                      CONSUMER_NAME          = "domain_events_consumer";
-    private final int                         MAX_RETRIES            = 2;
+    private final String CONSUMER_NAME = "domain_events_consumer";
+    private final int MAX_RETRIES = 2;
     private final DomainEventJsonDeserializer deserializer;
-    private final ApplicationContext          context;
-    private final RabbitMqPublisher           publisher;
-    private final HashMap<String, Object>     domainEventSubscribers = new HashMap<>();
+    private final ApplicationContext context;
+    private final RabbitMqPublisher publisher;
+    private final HashMap<String, Object> domainEventSubscribers = new HashMap<>();
     RabbitListenerEndpointRegistry registry;
     private DomainEventSubscribersInformation information;
 
@@ -36,11 +36,11 @@ public final class RabbitMqDomainEventsConsumer {
         ApplicationContext context,
         RabbitMqPublisher publisher
     ) {
-        this.registry     = registry;
-        this.information  = information;
+        this.registry = registry;
+        this.information = information;
         this.deserializer = deserializer;
-        this.context      = context;
-        this.publisher    = publisher;
+        this.context = context;
+        this.publisher = publisher;
     }
 
     public void consume() {
@@ -55,8 +55,8 @@ public final class RabbitMqDomainEventsConsumer {
 
     @RabbitListener(id = CONSUMER_NAME, autoStartup = "false")
     public void consumer(Message message) throws Exception {
-        String      serializedMessage = new String(message.getBody());
-        DomainEvent domainEvent       = deserializer.deserialize(serializedMessage);
+        String serializedMessage = new String(message.getBody());
+        DomainEvent domainEvent = deserializer.deserialize(serializedMessage);
 
         String queue = message.getMessageProperties().getConsumerQueue();
 
@@ -106,10 +106,10 @@ public final class RabbitMqDomainEventsConsumer {
 
         MessageBuilder.fromMessage(message).andProperties(
             MessagePropertiesBuilder.newInstance()
-                                    .setContentEncoding("utf-8")
-                                    .setContentType("application/json")
-                                    .copyHeaders(headers)
-                                    .build());
+                .setContentEncoding("utf-8")
+                .setContentType("application/json")
+                .copyHeaders(headers)
+                .build());
 
         publisher.publish(message, exchange, queue);
     }
@@ -119,8 +119,8 @@ public final class RabbitMqDomainEventsConsumer {
     }
 
     private Object subscriberFor(String queue) throws Exception {
-        String[] queueParts     = queue.split("\\.");
-        String   subscriberName = Utils.toCamelFirstLower(queueParts[queueParts.length - 1]);
+        String[] queueParts = queue.split("\\.");
+        String subscriberName = Utils.toCamelFirstLower(queueParts[queueParts.length - 1]);
 
         try {
             Object subscriber = context.getBean(subscriberName);

@@ -30,7 +30,7 @@ public final class ApiExceptionMiddleware implements Filter {
         ServletResponse response,
         FilterChain chain
     ) throws ServletException {
-        HttpServletRequest  httpRequest  = ((HttpServletRequest) request);
+        HttpServletRequest httpRequest = ((HttpServletRequest) request);
         HttpServletResponse httpResponse = ((HttpServletResponse) response);
 
         try {
@@ -61,12 +61,12 @@ public final class ApiExceptionMiddleware implements Filter {
             .errorMapping();
         Throwable error = (
             exception.getCause() instanceof CommandHandlerExecutionError ||
-            exception.getCause() instanceof QueryHandlerExecutionError
+                exception.getCause() instanceof QueryHandlerExecutionError
         )
             ? exception.getCause().getCause() : exception.getCause();
 
-        int    statusCode   = statusFor(errorMapping, error);
-        String errorCode    = errorCodeFor(error);
+        int statusCode = statusFor(errorMapping, error);
+        String errorCode = errorCodeFor(error);
         String errorMessage = error.getMessage();
 
         httpResponse.reset();

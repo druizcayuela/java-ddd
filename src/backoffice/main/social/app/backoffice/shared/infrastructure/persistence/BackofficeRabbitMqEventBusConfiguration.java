@@ -10,13 +10,13 @@ import social.app.shared.infrastructure.bus.event.rabbitmq.RabbitMqPublisher;
 @Configuration
 public class BackofficeRabbitMqEventBusConfiguration {
     private final RabbitMqPublisher publisher;
-    private final MySqlEventBus     failoverPublisher;
+    private final MySqlEventBus failoverPublisher;
 
     public BackofficeRabbitMqEventBusConfiguration(
         RabbitMqPublisher publisher,
         @Qualifier("backofficeMysqlEventBus") MySqlEventBus failoverPublisher
     ) {
-        this.publisher         = publisher;
+        this.publisher = publisher;
         this.failoverPublisher = failoverPublisher;
     }
 

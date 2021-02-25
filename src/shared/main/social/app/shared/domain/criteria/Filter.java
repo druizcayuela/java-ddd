@@ -3,14 +3,14 @@ package social.app.shared.domain.criteria;
 import java.util.HashMap;
 
 public final class Filter {
-    private final FilterField    field;
+    private final FilterField field;
     private final FilterOperator operator;
-    private final FilterValue    value;
+    private final FilterValue value;
 
     public Filter(FilterField field, FilterOperator operator, FilterValue value) {
-        this.field    = field;
+        this.field = field;
         this.operator = operator;
-        this.value    = value;
+        this.value = value;
     }
 
     public static Filter create(String field, String operator, String value) {

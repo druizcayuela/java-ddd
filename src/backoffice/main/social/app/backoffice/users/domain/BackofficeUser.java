@@ -11,15 +11,15 @@ public final class BackofficeUser {
     private final String email;
 
     public BackofficeUser() {
-        id       = null;
-        name     = null;
-        email    = null;
+        id = null;
+        name = null;
+        email = null;
     }
 
     public BackofficeUser(String id, String name, String email) {
-        this.id       = id;
-        this.name     = name;
-        this.email    = email;
+        this.id = id;
+        this.name = name;
+        this.email = email;
     }
 
     public static BackofficeUser fromPrimitives(Map<String, Object> plainData) {
@@ -60,8 +60,8 @@ public final class BackofficeUser {
         }
         BackofficeUser that = (BackofficeUser) o;
         return id.equals(that.id) &&
-               name.equals(that.name) &&
-               email.equals(that.email);
+            name.equals(that.name) &&
+            email.equals(that.email);
     }
 
     @Override

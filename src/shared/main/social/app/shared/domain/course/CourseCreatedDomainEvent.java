@@ -13,14 +13,14 @@ public final class CourseCreatedDomainEvent extends DomainEvent {
     public CourseCreatedDomainEvent() {
         super(null);
 
-        this.name     = null;
+        this.name = null;
         this.duration = null;
     }
 
     public CourseCreatedDomainEvent(String aggregateId, String name, String duration) {
         super(aggregateId);
 
-        this.name     = name;
+        this.name = name;
         this.duration = duration;
     }
 
@@ -33,7 +33,7 @@ public final class CourseCreatedDomainEvent extends DomainEvent {
     ) {
         super(aggregateId, eventId, occurredOn);
 
-        this.name     = name;
+        this.name = name;
         this.duration = duration;
     }
 
@@ -84,7 +84,7 @@ public final class CourseCreatedDomainEvent extends DomainEvent {
         }
         CourseCreatedDomainEvent that = (CourseCreatedDomainEvent) o;
         return name.equals(that.name) &&
-               duration.equals(that.duration);
+            duration.equals(that.duration);
     }
 
     @Override

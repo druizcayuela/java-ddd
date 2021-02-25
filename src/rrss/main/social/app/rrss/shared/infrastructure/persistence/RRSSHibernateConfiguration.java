@@ -16,12 +16,12 @@ import java.io.IOException;
 @EnableTransactionManagement
 public class RRSSHibernateConfiguration {
     private final HibernateConfigurationFactory factory;
-    private final Parameter                     config;
-    private final String                        CONTEXT_NAME = "rrss";
+    private final Parameter config;
+    private final String CONTEXT_NAME = "rrss";
 
     public RRSSHibernateConfiguration(HibernateConfigurationFactory factory, Parameter config) {
         this.factory = factory;
-        this.config  = config;
+        this.config = config;
     }
 
     @Bean("rrss-transaction_manager")

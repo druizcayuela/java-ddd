@@ -17,7 +17,7 @@ public final class SearchBackofficeCoursesByCriteriaQueryHandler implements Quer
     @Override
     public BackofficeCoursesResponse handle(SearchBackofficeCoursesByCriteriaQuery query) {
         Filters filters = Filters.fromValues(query.filters());
-        Order   order   = Order.fromValues(query.orderBy(), query.orderType());
+        Order order = Order.fromValues(query.orderBy(), query.orderType());
 
         return searcher.search(filters, order, query.limit(), query.offset());
     }
