@@ -15,7 +15,7 @@ final class InMemoryBackofficeUserRepositoryShould extends BackofficeContextInfr
     }
 
     @Test
-    void save_a_course() {
+    void save_a_user() {
         BackofficeUser user = BackofficeUserMother.random();
 
         repository.save(user);

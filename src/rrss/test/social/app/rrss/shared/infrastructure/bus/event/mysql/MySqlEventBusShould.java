@@ -3,8 +3,8 @@ package social.app.rrss.shared.infrastructure.bus.event.mysql;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import social.app.rrss.RRSSContextInfrastructureTestCase;
-import social.app.rrss.courses.domain.CourseCreatedDomainEventMother;
-import social.app.shared.domain.course.CourseCreatedDomainEvent;
+import social.app.rrss.users.domain.UserCreatedDomainEventMother;
+import social.app.shared.domain.user.UserCreatedDomainEvent;
 import social.app.shared.infrastructure.bus.event.mysql.MySqlDomainEventsConsumer;
 import social.app.shared.infrastructure.bus.event.mysql.MySqlEventBus;
 
@@ -20,7 +20,7 @@ class MySqlEventBusShould extends RRSSContextInfrastructureTestCase {
 
     @Test
     void publish_and_consume_domain_events_from_msql() throws InterruptedException {
-        CourseCreatedDomainEvent domainEvent = CourseCreatedDomainEventMother.random();
+        UserCreatedDomainEvent domainEvent = UserCreatedDomainEventMother.random();
 
         eventBus.publish(Collections.singletonList(domainEvent));
 

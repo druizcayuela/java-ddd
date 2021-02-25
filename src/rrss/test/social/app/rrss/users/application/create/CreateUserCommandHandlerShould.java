@@ -20,15 +20,15 @@ final class CreateUserCommandHandlerShould extends UsersModuleUnitTestCase {
     }
 
     @Test
-    void create_a_valid_course() {
+    void create_a_valid_user() {
         CreateUserCommand command = CreateUserCommandMother.random();
 
-        User course = UserMother.fromRequest(command);
-        UserCreatedDomainEvent domainEvent = UserCreatedDomainEventMother.fromUser(course);
+        User user = UserMother.fromRequest(command);
+        UserCreatedDomainEvent domainEvent = UserCreatedDomainEventMother.fromUser(user);
 
         handler.handle(command);
 
-        shouldHaveSaved(course);
+        shouldHaveSaved(user);
         shouldHavePublished(domainEvent);
     }
 }

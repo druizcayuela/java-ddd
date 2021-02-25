@@ -1,9 +1,6 @@
 package social.app.rrss.users.infrastructure.persistence;
 
 import org.junit.jupiter.api.Test;
-import social.app.rrss.courses.domain.Course;
-import social.app.rrss.courses.domain.CourseIdMother;
-import social.app.rrss.courses.domain.CourseMother;
 import social.app.rrss.users.UsersModuleInfrastructureTestCase;
 import social.app.rrss.users.domain.User;
 import social.app.rrss.users.domain.UserIdMother;
@@ -25,7 +22,7 @@ class MySqlUserRepositoryShould extends UsersModuleInfrastructureTestCase {
     }
 
     @Test
-    void return_an_existing_course() {
+    void return_an_existing_user() {
         User user = UserMother.random();
 
         mySqlUserRepository.save(user);
@@ -34,7 +31,7 @@ class MySqlUserRepositoryShould extends UsersModuleInfrastructureTestCase {
     }
 
     @Test
-    void not_return_a_non_existing_course() {
+    void not_return_a_non_existing_user() {
         assertFalse(mySqlUserRepository.search(UserIdMother.random()).isPresent());
     }
 }
